@@ -54,6 +54,9 @@ O **Pix Shield** é uma solução desenvolvida para monitorar as dependências c
 
 **Pergunta:** Como você lidou com possíveis inconsistências entre os dados do Redis e os dados reais das instituições financeiras?
 **Resposta:** Para mitigar inconsistências, configuramos um TTL (Time to Live) curto no Redis
+
+**Pergunta:** Na parte Tecnica , o que traz segurança na implementação dessa solução Pix shield?
+**Resposta:** Test-Driven Development (TDD): A prática de TDD foi aplicada para garantir que cada funcionalidade fosse desenvolvida com testes automatizados desde o início. Isso ajuda a identificar e corrigir vulnerabilidades ou comportamentos inesperados antes mesmo da implementação final
 ---
 
 ### **Integração e Infraestrutura**
