@@ -57,6 +57,11 @@ O **Pix Shield** é uma solução desenvolvida para monitorar as dependências c
 
 **Pergunta:** Na parte Tecnica , o que traz segurança na implementação dessa solução Pix shield?
 **Resposta:** Test-Driven Development (TDD): A prática de TDD foi aplicada para garantir que cada funcionalidade fosse desenvolvida com testes automatizados desde o início. Isso ajuda a identificar e corrigir vulnerabilidades ou comportamentos inesperados antes mesmo da implementação final
+
+1 -> RED. Utilizando o conceito de escrever primeiro o teste que falha, pos a funcionalidade ainda nao foi implementada
+2 -> GREEN: Implementa-se o codigo minimo para que o teste passe
+3 -> REFACTOR: Refatora o codigo para melhorar sua qualidade
+
 ---
 
 ### **Integração e Infraestrutura**
