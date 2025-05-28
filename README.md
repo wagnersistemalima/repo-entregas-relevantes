@@ -47,10 +47,19 @@ O **Pix Shield** é uma solução desenvolvida para monitorar as dependências c
 ### **Desenvolvimento e Implementação**
 
 **Pergunta:** Como foi implementada a aplicação de monitoramento que executa a cada 30 segundos? Quais cuidados foram tomados para evitar sobrecarga no sistema?  
-**Resposta:** A aplicação foi implementada como um job agendado utilizando `@Scheduled` do Spring Boot. Configuramos limites de timeout e retries, além de monitorar o consumo de recursos.
+**Resposta:** A aplicação foi implementada como um job agendado utilizando `@Scheduled` do Spring Boot. Configuramos limites de timeout e retries, além de monitorar o consumo de recursos. 
+
+A anotação @Scheduled no Spring é usada para executar tarefas agendadas de forma automática em intervalos de tempo definidos. Ela é aplicada em métodos e funciona em conjunto com o suporte a tarefas agendadas do Spring.
+
+Configuração
+Para usar o @Scheduled, é necessário habilitar o agendamento de tarefas na aplicação com a anotação @EnableScheduling em uma classe de configuração ou na classe principal.
+
 
 **Pergunta:** Quais estratégias foram usadas para garantir a consistência e a confiabilidade dos dados expostos pelo Pix Shield?  
-**Resposta:** Implementamos validações nos dados coletados e utilizamos mecanismos de fallback para lidar com falhas temporárias.
+**Resposta:** Utilizamos a configuração do Redis para limpar o cache por meio de um TTL (Time to Live) curto, garantindo que os dados sejam atualizados regularmente. Além disso, implementamos um job agendado que é acionado a cada 30 segundos para realizar consultas ao sistema de monitoramento (Sonar) e atualizar a base do cache com as informações mais recentes.
+
+**Pergunta:** Como você garantiu que o Pix Shield fosse facilmente expansível para futuras dependências?
+**Resposta:** Para garantir a expansibilidade do Pix Shield, projetamos a arquitetura com uma abordagem modular, permitindo que novas dependências sejam adicionadas como novos serviços ou módulos. Utilizamos APIs bem definidas e contratos claros entre os serviços, facilitando a integração de novas fontes de dados sem impactar os componentes existentes.
 
 **Pergunta:** Como você lidou com possíveis falhas no monitoramento das dependências críticas?  
 **Resposta:** Quando há falha na comunicação entre o BFF e a API que consulta o Redis, devolvemos o status de disponibilidade financeira como INDETERMINADO. O frontend interpreta esse status como disponível, pois não podemos interromper o fluxo da transação. Registramos logs de erro no backend para essa condição e planejamos criar alertas na segunda fase do projeto.
