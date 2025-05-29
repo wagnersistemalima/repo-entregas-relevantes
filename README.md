@@ -20,6 +20,11 @@ O **Pix Shield** é uma solução desenvolvida para monitorar as dependências c
 
 ### **Arquitetura e Design**
 
+    A solução surgiu para diminuir 1% dos erros no fluxo de transferencia.
+
+		E a indisponibilidade das instituição representaria 0,20%
+
+
 **Pergunta:** Fale sobre a inversao de controle e injeção de dependencia?
 **Resposta:** A inversão de controle (IoC) é um princípio de design que inverte a responsabilidade de controle do fluxo de execução de um programa. Em vez de o código chamar diretamente as dependências, essas são injetadas no código, permitindo maior flexibilidade e testabilidade. A injeção de dependência (DI) é uma técnica específica para implementar IoC, onde as dependências são fornecidas a uma classe em vez de serem criadas internamente. Isso facilita a substituição de implementações e melhora a modularidade do código.
 
